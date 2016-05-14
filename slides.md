@@ -21,4 +21,26 @@ donde se alojan ( en la red local )
 
 # P2P y WebRTC
 
-Muchos
+La característica más interesante de WebRTC son los canales de datos.
+Se establece una conexión entre los nodos.
+Solo se requiere de un nodo central ( por ahora ) para coordinar
+el handshake inicial.
+
+# Cómo replicar la información de manera distribuida? 
+
+Logs > snapshots.
+
+El log de operaciones es más importante que el snapshot de datos.
+Porque con el log puedo recrear los datos.
+
+hyperlog => Merkle DAG (Directed acyclic graph)
+
+Replicar un hyperlog => Usando protocolo "gossip"
+
+# Modularidad al rescate
+
+* hyperlog
+* leveldb
+* webrtc-swarm
+* signalhub
+
