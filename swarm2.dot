@@ -1,0 +1,26 @@
+graph SwarmHub {
+	E
+	A -- B
+	B -- C
+	D -- E
+	E -- F
+	A -- E
+	A -- F
+	H1 -- A
+	H2 -- A
+	H1 -- B
+	H1 -- C
+	H2 -- D
+	H2 -- E
+	H2 -- F
+
+
+
+	A [label="A Desktop"];
+	B [label="B Browser"];
+	C [label="C Browser"];
+	D [label="D Desktop"];
+	E [label="E Node"];
+	H1 [label="Signal Hub1",shape=box,style=filled,color=".7 .3 1.0"];
+	H2 [label="Signal Hub2",shape=box,style=filled,color=".7 .3 1.0"];
+}

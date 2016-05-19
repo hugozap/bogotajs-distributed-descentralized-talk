@@ -1,0 +1,8 @@
+graph G {
+	Server
+	A -- Server
+	B -- Server
+	C -- Server
+	D -- Server
+	E -- Server
+}

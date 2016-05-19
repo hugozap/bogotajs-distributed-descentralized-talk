@@ -1,0 +1,8 @@
+graph Swarm {
+	A
+	A--B
+	B--C
+	A[label="A => key=hash(Contenido A, links)| links=[]"]
+	B[label="B => key=hash(Contenido B, links)| links=[A.key]"]
+	C[label="C => key=hash(Contenido C, links)| links=[B.key]"]
+}

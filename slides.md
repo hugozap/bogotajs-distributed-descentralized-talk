@@ -1,46 +1,82 @@
-# INTRO 
-Aplicaciones distribuidas descentralizadas con JavaScript
+## Aplicaciones distribuidas descentralizadas con JavaScript
 
-# Motivación
 
+## Motivación
+
+* Open Web
 * Independencia de servicios y gatekeepers.
 * Revivir el espíritu creativo de la web.
+* escenarios offline / conexiones intermitentes / etc.
 
-# Repaso Streams en 2 minutos
+## Repaso Streams en 2 minutos
 
 
-[http://hugozap.com/development/2015/11/01/nodejs-streams-intro-diagrams](NodeJS Streams diagrams)
+[Diagramas de conceptos básicos de streams](http://hugozap.com/development/2015/11/01/nodejs-streams-intro-diagrams)
 
-# Multicast
+## Multicast ( Red Local )
 
 Capacidad para crear servicios que se anuncien y se
 puedan descubrir sin conocer la dirección de la máquina
 donde se alojan ( en la red local )
 
 [https://www.npmjs.com/package/airpaste](airpaste)
+[https://github.com/mafintosh/multicast-dns](multicast-dns)
 
-# P2P y WebRTC
+    Terminal A:
+    > echo "hola" | airpaste
+    Terminal B:
+    > airpaste
+    > hola
 
-La característica más interesante de WebRTC son los canales de datos.
-Se establece una conexión entre los nodos.
-Solo se requiere de un nodo central ( por ahora ) para coordinar
-el handshake inicial.
+## Descentralización en varios frentes
 
-# Cómo replicar la información de manera distribuida? 
+* WebRTC (Comunicación entre nodos de Internet)
+    - Browser
+    - NodeJS
+    - Desktop (Electron)
+    - Mobile (Android Chrome / IOS)
+    - ...
 
-Logs > snapshots.
+* IPFS / WebTorrent (storage)
+* Blockchain, Ethereum( contratos inteligentes descentralizados)
 
-El log de operaciones es más importante que el snapshot de datos.
-Porque con el log puedo recrear los datos.
+## P2P y WebRTC
 
-hyperlog => Merkle DAG (Directed acyclic graph)
+VideoConferencias => Meh...
 
-Replicar un hyperlog => Usando protocolo "gossip"
+Data Channels => Yeiii!!
 
-# Modularidad al rescate
+## Centralizado y Descentralizado
+
+* ![Centralizado](central.png)
+
+* ![Descentralizado](swarm1.png)
+
+## 1. Estableciendo conexión con otros Peers
+
+* No necesariamente me conecto con TODOS (límites de conexiones)
+* Necesitamos uno o más nodos que coordinen la conexión (Signal hub)
+* Un SignalHub solo presenta peers. 
+
+![Descentralizado](swarm2.png)
+
+## 2. Cómo replicar información entre peers? (swarm)
+
+* Merkle DAG (Ej => GIT)
+* Arquitectura "Append Only"
+* Registramos Cambios a nuestro Log
+* CambioA puede depender de CambioB y CambioC
+* Usamos Hash (shasum256) como llave de cada nodo (verificar integridad)
+* Hash(Contenido Del Nodo + Lista de llaves a otros nodos)
+
+## Modularidad al rescate
 
 * hyperlog
 * leveldb
 * webrtc-swarm
 * signalhub
+
+
+
+
 

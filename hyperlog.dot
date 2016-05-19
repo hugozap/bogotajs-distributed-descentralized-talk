@@ -1,0 +1,13 @@
+digraph Hyperlog {
+	A->A1->A11->A111
+	A11->A112
+	B->B1->B11
+	B1->B12
+	B->B2
+	B12->B121
+	B12->B122
+	B12->B123
+	A [label="Head A"]
+	B [label="Head B"]
+	B123 [shape=record, label="B12|links=[B12] | { key=c3daxd3...}"]
+}

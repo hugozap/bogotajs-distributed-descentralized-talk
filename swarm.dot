@@ -1,0 +1,16 @@
+graph Swarm {
+	E
+	A -- B
+	A -- F
+	A -- G
+	B -- E
+	C -- B
+	C -- E
+	D -- B
+	F -- G
+	A [label="A Desktop"];
+	B [label="B Browser"];
+	C [label="C Browser"];
+	D [label="D Desktop"];
+	E [label="E Node"]
+}
